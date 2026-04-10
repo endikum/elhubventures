@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
         navLinks.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', navLinks.classList.contains('open') ? 'true' : 'false');
         document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
     });
 
@@ -32,8 +33,47 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', () => {
             hamburger.classList.remove('active');
             navLinks.classList.remove('open');
+            hamburger.setAttribute('aria-expanded', 'false');
             document.body.style.overflow = '';
         });
+    });
+
+    // Header submenus
+    navLinks.querySelectorAll('.nav-drop-toggle').forEach((toggle) => {
+        toggle.addEventListener('click', (e) => {
+            const isMobile = window.matchMedia('(max-width: 768px)').matches;
+            if (!isMobile) {
+                // Desktop should be hover-only: prevent sticky click-open state.
+                e.preventDefault();
+                return;
+            }
+
+            const parent = toggle.closest('.nav-dropdown');
+            const isOpen = parent.classList.contains('open');
+            navLinks.querySelectorAll('.nav-dropdown').forEach((item) => {
+                item.classList.remove('open');
+                const btn = item.querySelector('.nav-drop-toggle');
+                if (btn) btn.setAttribute('aria-expanded', 'false');
+            });
+            if (!isOpen) {
+                parent.classList.add('open');
+                toggle.setAttribute('aria-expanded', 'true');
+            }
+        });
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('open');
+            hamburger.setAttribute('aria-expanded', 'false');
+            navLinks.querySelectorAll('.nav-dropdown').forEach((item) => {
+                item.classList.remove('open');
+                const btn = item.querySelector('.nav-drop-toggle');
+                if (btn) btn.setAttribute('aria-expanded', 'false');
+            });
+            document.body.style.overflow = '';
+        }
     });
 
     // ---------- Smooth Scroll for Anchor Links ----------
@@ -217,6 +257,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 const result = await response.json();
 
                 if (response.ok) {
+                    if (window.dataLayer) {
+                        window.dataLayer.push({ event: 'lead_form_submit', service: data.service || 'unknown' });
+                    }
                     btn.innerHTML = 'Message Sent!';
                     btn.style.background = '#e3c567';
                     btn.style.color = '#000';
@@ -251,11 +294,115 @@ document.addEventListener('DOMContentLoaded', () => {
     htmlElement.setAttribute('data-theme', currentTheme);
 
     if (themeToggle) {
+        themeToggle.textContent = currentTheme === 'dark' ? 'Light' : 'Dark';
         themeToggle.addEventListener('click', () => {
             const newTheme = htmlElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
             htmlElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
+            themeToggle.textContent = newTheme === 'dark' ? 'Light' : 'Dark';
         });
+    }
+
+    // ---------- Cookie Consent ----------
+    const cookieBanner = document.getElementById('cookieBanner');
+    const acceptCookies = document.getElementById('acceptCookies');
+    const cookieAccepted = localStorage.getItem('cookieConsentAccepted') === 'yes';
+
+    if (cookieBanner) {
+        if (cookieAccepted) {
+            cookieBanner.style.display = 'none';
+        } else if (acceptCookies) {
+            acceptCookies.addEventListener('click', () => {
+                localStorage.setItem('cookieConsentAccepted', 'yes');
+                cookieBanner.style.display = 'none';
+            });
+        }
+    }
+
+    // Ensure safe rel attrs on external links
+    document.querySelectorAll('a[target="_blank"]').forEach((link) => {
+        if (!link.getAttribute('rel')) {
+            link.setAttribute('rel', 'noopener noreferrer');
+        }
+    });
+
+    // ---------- Protected Document Access ----------
+    const encodeAccessCode = (value) => {
+        let hash = 0;
+        for (let i = 0; i < value.length; i++) {
+            hash = ((hash << 5) - hash) + value.charCodeAt(i);
+            hash |= 0;
+        }
+        return btoa(String(hash));
+    };
+
+    const protectedCodeHash = 'MTUwOTQ0Mg=='; // Hash for "1234"
+    document.querySelectorAll('.protected-doc-link').forEach((link) => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const providedCode = window.prompt('Enter access code to view partnership document:');
+            if (!providedCode) return;
+
+            const isValid = encodeAccessCode(providedCode.trim()) === protectedCodeHash;
+            if (!isValid) {
+                window.alert('Invalid code. Access denied.');
+                return;
+            }
+
+            const docUrl = link.dataset.docUrl;
+            if (!docUrl) return;
+            window.open(docUrl, '_blank', 'noopener,noreferrer');
+        });
+    });
+
+    // ---------- Certificate Modal ----------
+    const certificateModal = document.getElementById('certificateModal');
+    const certificateModalClose = document.getElementById('certificateModalClose');
+    const certificateModalBackdrop = document.getElementById('certificateModalBackdrop');
+    const certificateOpenButtons = document.querySelectorAll('.open-certificate-btn');
+
+    const openCertificateModal = () => {
+        if (!certificateModal) return;
+        certificateModal.classList.add('open');
+        certificateModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeCertificateModal = () => {
+        if (!certificateModal) return;
+        certificateModal.classList.remove('open');
+        certificateModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    };
+
+    certificateOpenButtons.forEach((btn) => {
+        btn.addEventListener('click', openCertificateModal);
+    });
+
+    if (certificateModalClose) {
+        certificateModalClose.addEventListener('click', closeCertificateModal);
+    }
+
+    if (certificateModalBackdrop) {
+        certificateModalBackdrop.addEventListener('click', closeCertificateModal);
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && certificateModal && certificateModal.classList.contains('open')) {
+            closeCertificateModal();
+        }
+    });
+
+    // ---------- Sticky CTA Visibility ----------
+    const stickyCta = document.querySelector('.sticky-cta');
+    if (stickyCta) {
+        const handleStickyCta = () => {
+            stickyCta.style.opacity = window.scrollY > 500 ? '1' : '0';
+            stickyCta.style.pointerEvents = window.scrollY > 500 ? 'auto' : 'none';
+        };
+
+        handleStickyCta();
+        window.addEventListener('scroll', handleStickyCta, { passive: true });
     }
 
     // ---------- Active Nav Highlighting ----------

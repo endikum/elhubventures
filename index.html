@@ -8,13 +8,24 @@
     <meta property="og:title" content="EL-HUB VENTURES | Code. Connect. Conquer.">
     <meta property="og:description" content="Premium web and mobile app development company delivering scalable digital solutions.">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/images/hero.png">
+    <meta property="og:url" content="https://www.elhubventures.com/">
+    <link rel="canonical" href="https://www.elhubventures.com/">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="keywords" content="web development, mobile app development, UI UX design, SEO services, digital strategy, cloud devops, EL-HUB VENTURES">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="EL-HUB VENTURES | Code. Connect. Conquer.">
+    <meta name="twitter:description" content="Premium web and mobile app development with technical SEO and growth-focused digital strategy.">
+    <meta name="twitter:image" content="assets/images/hero.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="assets/images/hero.png">
     <link rel="stylesheet" href="index.css">
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <!-- ==================== NAVIGATION ==================== -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
@@ -23,25 +34,44 @@
                 <span class="logo-text">EL-HUB<span class="logo-accent">VENTURES</span></span>
             </a>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#services">Services</a></li>
+                <li class="nav-dropdown">
+                    <button class="nav-drop-toggle" type="button" aria-expanded="false">Services</button>
+                    <ul class="nav-submenu">
+                        <li><a href="services/web-development.html">Web Development</a></li>
+                        <li><a href="services/mobile-app-development.html">Mobile App Development</a></li>
+                        <li><a href="services/seo-services.html">SEO Services</a></li>
+                        <li><a href="services/cloud-devops.html">Cloud & DevOps</a></li>
+                    </ul>
+                </li>
+                <li class="nav-dropdown">
+                    <button class="nav-drop-toggle" type="button" aria-expanded="false">Company</button>
+                    <ul class="nav-submenu">
+                        <li><a href="case-studies.html">Case Studies</a></li>
+                        <li><a href="resources/index.html">Resources</a></li>
+                        <li><a href="#certification">Certification</a></li>
+                        <li><a href="#partnership">Partnership</a></li>
+                        <li><a href="#why-us">Why Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </li>
                 <li><a href="#why-us">Why Us</a></li>
                 <li><a href="#process">Process</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact" class="nav-cta">Get Started</a></li>
+                <li><a href="contact.html" class="nav-cta">Get Started</a></li>
             </ul>
             <div class="nav-extra">
             <div class="nav-socials">
-                <a href="https://www.linkedin.com/company/elhubventures" target="_blank" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/company/elhubventures" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                 </a>
-                <a href="https://www.instagram.com/elhubventures/" target="_blank" aria-label="Instagram">
+                <a href="https://www.instagram.com/elhubventures/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
                 </a>
-                <a href="https://www.tiktok.com/@elhubventures" target="_blank" aria-label="TikTok">
+                <a href="https://www.tiktok.com/@elhubventures" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.17-2.86-.6-4.12-1.31a8.07 8.07 0 0 1-1.87-1.44v9.64A7.5 7.5 0 0 1 12 24c-1.82 0-3.6-.66-4.95-1.86A7.47 7.47 0 0 1 4.5 16.5 7.47 7.47 0 0 1 7.05 10.8a7.47 7.47 0 0 1 4.95-1.8c.16 0 .33 0 .49.02V13a3.5 3.5 0 0 0-1.54.34 3.5 3.5 0 0 0-1.95 3.16c0 1.3.73 2.5 1.9 3.07a3.5 3.5 0 0 0 3.07 0c1.17-.57 1.9-1.77 1.9-3.07V0l-.4-.02h.4z"/></svg>
                 </a>
             </div>
+                <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle dark and light mode">Theme</button>
                 <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
                     <span></span>
                     <span></span>
@@ -52,13 +82,14 @@
     </nav>
 
     <!-- ==================== HERO SECTION ==================== -->
+    <main id="main-content">
     <section class="hero" id="hero">
         <div class="hero-bg-grid"></div>
         <div class="hero-particles" id="heroParticles"></div>
         <div class="hero-glow hero-glow-1"></div>
         <div class="hero-glow hero-glow-2"></div>
         <div class="hero-image-wrapper">
-            <img src="assets/images/hero.png" alt="Hero Background" class="hero-bg-image">
+            <img src="assets/images/hero.png" alt="Hero Background" class="hero-bg-image" fetchpriority="high" decoding="async">
             <div class="hero-image-overlay"></div>
         </div>
         <div class="hero-content">
@@ -77,11 +108,12 @@
                 leaders to build thriving, scalable businesses.
             </p>
             <div class="hero-actions reveal reveal-up" data-delay="500">
-                <a href="#contact" class="btn btn-primary">
+                <a href="contact.html" class="btn btn-primary">
                     <span>Start Your Project</span>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                 </a>
                 <a href="#portfolio" class="btn btn-outline">View Our Work</a>
+                <button type="button" class="btn btn-outline open-certificate-btn">View Certificate</button>
             </div>
             <div class="hero-stats">
                 <div class="hero-stat">
@@ -96,6 +128,33 @@
                     <span class="stat-number" data-target="5">0</span><span class="stat-suffix">+</span>
                     <span class="stat-label">Years Experience</span>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="trust-strip">
+        <div class="container">
+            <p class="trust-label">Trusted by teams building serious digital products</p>
+            <div class="trust-logos">
+                <span>FinTrack Group</span>
+                <span>HealthPulse Labs</span>
+                <span>MarketEdge Commerce</span>
+                <span>TeamSync Systems</span>
+                <span>NovaCloud Africa</span>
+            </div>
+            <div class="trust-reviews">
+                <article class="trust-review">
+                    <p>"Execution quality was elite from week one."</p>
+                    <strong>Adebayo Ogunlesi, FinTrack Pro</strong>
+                </article>
+                <article class="trust-review">
+                    <p>"Our app launch timeline was cut by nearly half."</p>
+                    <strong>Ngozi Kalu, HealthPulse</strong>
+                </article>
+                <article class="trust-review">
+                    <p>"Infrastructure and growth decisions paid off immediately."</p>
+                    <strong>Emmanuel Mensah, MarketEdge</strong>
+                </article>
             </div>
         </div>
     </section>
@@ -118,6 +177,7 @@
                     <div class="service-tags">
                         <span>React</span><span>Next.js</span><span>Node.js</span>
                     </div>
+                    <a class="service-link" href="services/web-development.html">Explore Service</a>
                 </div>
                 <div class="service-card reveal" data-delay="100">
                     <div class="service-icon">
@@ -128,6 +188,7 @@
                     <div class="service-tags">
                         <span>Flutter</span><span>React Native</span><span>Swift</span>
                     </div>
+                    <a class="service-link" href="services/mobile-app-development.html">Explore Service</a>
                 </div>
                 <div class="service-card reveal" data-delay="200">
                     <div class="service-icon">
@@ -158,17 +219,55 @@
                     <div class="service-tags">
                         <span>AWS</span><span>Docker</span><span>Kubernetes</span>
                     </div>
+                    <a class="service-link" href="services/cloud-devops.html">Explore Service</a>
                 </div>
                 <div class="service-card reveal" data-delay="500">
                     <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h14a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v4"/><path d="M14 2v5h5"/><path d="M3 15h6"/><path d="M6 12v6"/></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/><path d="M8 11h6"/><path d="M11 8v6"/></svg>
                     </div>
-                    <h3>API Integration</h3>
-                    <p>Seamless third-party integrations, RESTful APIs, and microservices architecture for connected ecosystems.</p>
+                    <h3>Search Engine Optimization</h3>
+                    <p>Technical SEO, content structure, and on-page optimization that increase rankings, organic traffic, and qualified leads.</p>
                     <div class="service-tags">
-                        <span>REST</span><span>GraphQL</span><span>Webhooks</span>
+                        <span>Technical SEO</span><span>On-Page SEO</span><span>Schema Markup</span>
                     </div>
+                    <a class="service-link" href="services/seo-services.html">Explore Service</a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SEO LANDING SECTION ==================== -->
+    <section class="section seo-landing" id="seo-landing">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">SEO Growth Engine</span>
+                <h2 class="section-title">Dedicated <span class="gradient-text">SEO Services</span> That Compound Results</h2>
+                <p class="section-subtitle">A structured SEO execution system built to improve visibility, rankings, and qualified inbound leads month over month.</p>
+            </div>
+            <div class="seo-intro reveal" data-delay="100">
+                <p>Our team combines technical SEO, content strategy, and continuous optimization to make sure your website is discoverable by the right audience and aligned with search intent.</p>
+            </div>
+            <div class="seo-deliverables">
+                <article class="seo-card reveal reveal-scale" data-delay="0">
+                    <h3>Technical Audit</h3>
+                    <p>Complete crawl analysis covering indexing, site speed, Core Web Vitals, mobile usability, URL structure, and schema opportunities.</p>
+                    <span class="seo-badge">Foundation</span>
+                </article>
+                <article class="seo-card reveal reveal-scale" data-delay="100">
+                    <h3>Keyword Map</h3>
+                    <p>Intent-driven keyword mapping for core pages, supporting pages, and content clusters designed to capture high-value searches.</p>
+                    <span class="seo-badge">Strategy</span>
+                </article>
+                <article class="seo-card reveal reveal-scale" data-delay="200">
+                    <h3>On-Page Fixes</h3>
+                    <p>Hands-on implementation of optimized metadata, heading hierarchy, internal linking, image SEO, and content alignment updates.</p>
+                    <span class="seo-badge">Execution</span>
+                </article>
+                <article class="seo-card reveal reveal-scale" data-delay="300">
+                    <h3>Monthly Reporting</h3>
+                    <p>Clear monthly performance reports with rankings, traffic trends, lead impact, wins, and next-priority action items.</p>
+                    <span class="seo-badge">Optimization</span>
+                </article>
             </div>
         </div>
     </section>
@@ -290,7 +389,8 @@
             </div>
             <div class="portfolio-grid">
                 <div class="portfolio-card reveal" data-delay="0">
-                    <div class="portfolio-image" style="background: linear-gradient(135deg, #1a1c23 0%, #0d0f14 100%); border-bottom: 1px solid rgba(227, 197, 103, 0.1);">
+                    <div class="portfolio-image">
+                        <img src="assets/images/portfolio/fintrack-pro.svg" alt="Sample dashboard design for FinTrack Pro financial analytics platform" loading="lazy">
                         <div class="portfolio-overlay">
                             <span class="portfolio-tag">Web App</span>
                         </div>
@@ -304,7 +404,8 @@
                     </div>
                 </div>
                 <div class="portfolio-card reveal" data-delay="100">
-                    <div class="portfolio-image" style="background: linear-gradient(135deg, #2a2d37 0%, #1a1c23 100%); border-bottom: 1px solid rgba(227, 197, 103, 0.1);">
+                    <div class="portfolio-image">
+                        <img src="assets/images/portfolio/healthpulse.svg" alt="Sample mobile app design for HealthPulse wellness and telemedicine product" loading="lazy">
                         <div class="portfolio-overlay">
                             <span class="portfolio-tag">Mobile App</span>
                         </div>
@@ -318,7 +419,8 @@
                     </div>
                 </div>
                 <div class="portfolio-card reveal" data-delay="200">
-                    <div class="portfolio-image" style="background: linear-gradient(135deg, #1a1c23 0%, #080a0d 100%); border-bottom: 1px solid rgba(227, 197, 103, 0.1);">
+                    <div class="portfolio-image">
+                        <img src="assets/images/portfolio/marketedge.svg" alt="Sample ecommerce marketplace design for MarketEdge multi-vendor platform" loading="lazy">
                         <div class="portfolio-overlay">
                             <span class="portfolio-tag">E-Commerce</span>
                         </div>
@@ -332,7 +434,8 @@
                     </div>
                 </div>
                 <div class="portfolio-card reveal" data-delay="300">
-                    <div class="portfolio-image" style="background: linear-gradient(135deg, #0d0f14 0%, #050505 100%); border-bottom: 1px solid rgba(227, 197, 103, 0.1);">
+                    <div class="portfolio-image">
+                        <img src="assets/images/portfolio/teamsync.svg" alt="Sample SaaS interface design for TeamSync project management platform" loading="lazy">
                         <div class="portfolio-overlay">
                             <span class="portfolio-tag">SaaS Platform</span>
                         </div>
@@ -345,6 +448,78 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section case-studies" id="case-studies">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Case Studies</span>
+                <h2 class="section-title">Results That <span class="gradient-text">Move Revenue</span></h2>
+                <p class="section-subtitle">Not just launches. Real business outcomes backed by measurable delivery.</p>
+            </div>
+            <div class="case-study-grid">
+                <article class="case-study-card reveal">
+                    <h3>FinTrack Pro Rebuild</h3>
+                    <p>Re-architected analytics platform for speed and reliability across 120k+ monthly sessions.</p>
+                    <div class="case-metrics">
+                        <span>+68% conversion rate</span>
+                        <span>1.3s page load</span>
+                        <span>99.95% uptime</span>
+                    </div>
+                </article>
+                <article class="case-study-card reveal" data-delay="100">
+                    <h3>MarketEdge Scale Project</h3>
+                    <p>Optimized checkout, search, and inventory sync for multi-vendor growth.</p>
+                    <div class="case-metrics">
+                        <span>+42% checkout completion</span>
+                        <span>10x traffic readiness</span>
+                        <span>-35% infrastructure cost</span>
+                    </div>
+                </article>
+                <article class="case-study-card reveal" data-delay="200">
+                    <h3>HealthPulse Acquisition Engine</h3>
+                    <p>Combined product improvements with technical SEO and content structure refresh.</p>
+                    <div class="case-metrics">
+                        <span>+214% organic traffic</span>
+                        <span>+51% booked consultations</span>
+                        <span>Top 3 for 19 keywords</span>
+                    </div>
+                </article>
+            </div>
+            <div class="centered-link reveal" data-delay="250">
+                <a href="case-studies.html" class="btn btn-outline">View Full Case Studies</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section engagement-models" id="engagement-models">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Engagement Models</span>
+                <h2 class="section-title">Flexible Delivery, <span class="gradient-text">Clear Commercials</span></h2>
+            </div>
+            <div class="models-grid">
+                <div class="model-card reveal">
+                    <h3>Project-Based</h3>
+                    <p>Best for clearly scoped products and deadlines.</p>
+                    <strong>From $8,000</strong>
+                </div>
+                <div class="model-card reveal" data-delay="100">
+                    <h3>Dedicated Team</h3>
+                    <p>Best for scaling roadmap execution with speed.</p>
+                    <strong>From $5,500 / month</strong>
+                </div>
+                <div class="model-card reveal" data-delay="200">
+                    <h3>Growth + SEO Retainer</h3>
+                    <p>Best for continuous optimization and inbound growth.</p>
+                    <strong>From $1,500 / month</strong>
+                </div>
+            </div>
+            <div class="commercial-meta reveal" data-delay="250">
+                <div><strong>Communication Cadence:</strong> Weekly sprint demos, async daily updates, bi-weekly leadership check-ins.</div>
+                <div><strong>Support SLA:</strong> Critical: 1 hour response, High: 4 hours, Standard: next business day.</div>
             </div>
         </div>
     </section>
@@ -405,122 +580,91 @@
         </div>
     </section>
 
-    <!-- ==================== CONTACT / CTA SECTION ==================== -->
-    <section class="section contact" id="contact">
+    <section class="section team" id="team">
         <div class="container">
-            <div class="contact-layout">
-                <div class="contact-left reveal reveal-left">
-                    <span class="section-tag">Let's Build</span>
-                    <h2 class="section-title">Ready to <span class="gradient-text">Conquer?</span></h2>
-                    <p class="section-subtitle">Tell us about your vision. We'll turn it into a roadmap — and then into reality.</p>
-                    <div class="contact-hubs">
-                        <div class="hub-card reveal reveal-scale" data-delay="0">
-                            <div class="hub-header">
-                                <span class="hub-flag">🇳🇬</span>
-                                <strong>Nigeria (HQ)</strong>
-                            </div>
-                            <p>12 Garba A Idris St, Kado, Abuja, Nigeria</p>
-                            <div class="hub-contact">
-                                <a href="tel:+2349139370513">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                                    (+234) 913 937-0513
-                                </a>
-                                <a href="mailto:ng@elhubventures.com">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                                    ng@elhubventures.com
-                                </a>
-                            </div>
-                        </div>
-                        <div class="hub-card reveal reveal-scale" data-delay="100">
-                            <div class="hub-header">
-                                <span class="hub-flag">🇨🇦</span>
-                                <strong>Canada</strong>
-                            </div>
-                            <p>Ontario L9T 7P7, Canada</p>
-                            <div class="hub-contact">
-                                <a href="tel:+12266977828">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                                    +1 (226) 697-7828
-                                </a>
-                                <a href="mailto:cad@elhubventures.com">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                                    cad@elhubventures.com
-                                </a>
-                            </div>
-                        </div>
-                        <div class="hub-card reveal reveal-scale" data-delay="200">
-                            <div class="hub-header">
-                                <span class="hub-flag">🇬🇧</span>
-                                <strong>United Kingdom</strong>
-                            </div>
-                            <p>Birmingham B20 2BT, UK</p>
-                            <div class="hub-contact">
-                                <a href="tel:+447474780484">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                                    (+44) 7474 780484
-                                </a>
-                                <a href="mailto:uk@elhubventures.com">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                                    uk@elhubventures.com
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="main-contact-highlight reveal" data-delay="300">
-                        <div class="contact-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                        </div>
-                        <div>
-                            <strong>General Inquiries</strong>
-                            <span>contact@elhubventures.com</span>
-                        </div>
-                    </div>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/company/elhubventures" target="_blank" class="social-link" aria-label="LinkedIn">
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                        </a>
-                        <a href="https://www.instagram.com/elhubventures/" target="_blank" class="social-link" aria-label="Instagram">
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-                        </a>
-                        <a href="https://www.tiktok.com/@elhubventures" target="_blank" class="social-link" aria-label="TikTok">
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.17-2.86-.6-4.12-1.31a8.07 8.07 0 0 1-1.87-1.44v9.64A7.5 7.5 0 0 1 12 24c-1.82 0-3.6-.66-4.95-1.86A7.47 7.47 0 0 1 4.5 16.5 7.47 7.47 0 0 1 7.05 10.8a7.47 7.47 0 0 1 4.95-1.8c.16 0 .33 0 .49.02V13a3.5 3.5 0 0 0-1.54.34 3.5 3.5 0 0 0-1.95 3.16c0 1.3.73 2.5 1.9 3.07a3.5 3.5 0 0 0 3.07 0c1.17-.57 1.9-1.77 1.9-3.07V0l-.4-.02h.4z"/></svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="contact-right reveal reveal-right" data-delay="200">
-                    <form class="contact-form" id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" placeholder="John Doe" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" placeholder="john@company.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="service">Service Needed</label>
-                            <select id="service" name="service" required>
-                                <option value="" disabled selected>Select a service</option>
-                                <option value="web">Web Development</option>
-                                <option value="mobile">Mobile App Development</option>
-                                <option value="uiux">UI/UX Design</option>
-                                <option value="strategy">Digital Strategy</option>
-                                <option value="cloud">Cloud & DevOps</option>
-                                <option value="api">API Integration</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Project Details</label>
-                            <textarea id="message" name="message" rows="4" placeholder="Tell us about your project..." required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
-                            <span>Send Message</span>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22 11 13 2 9 22 2z"/></svg>
-                        </button>
-                    </form>
+            <div class="section-header reveal">
+                <span class="section-tag">Leadership Team</span>
+                <h2 class="section-title">Builders, Strategists, <span class="gradient-text">Problem Solvers</span></h2>
+            </div>
+            <div class="team-grid">
+                <article class="team-card reveal">
+                    <img src="assets/images/team/adebayo-ogunlesi.svg" alt="Adebayo Ogunlesi portrait" loading="lazy">
+                    <h3>Adebayo Ogunlesi — Product Engineering Lead</h3>
+                    <p>12+ years in scalable platform delivery across fintech and enterprise SaaS ecosystems.</p>
+                    <div class="team-cred"><span>AWS Certified</span><span>Scrum Professional</span></div>
+                </article>
+                <article class="team-card reveal" data-delay="100">
+                    <img src="assets/images/team/ngozi-kalu.svg" alt="Ngozi Kalu portrait" loading="lazy">
+                    <h3>Ngozi Kalu — Design & UX Lead</h3>
+                    <p>Leads conversion-focused design systems and customer journey optimization for high-growth products.</p>
+                    <div class="team-cred"><span>Google UX Certified</span><span>Design Systems Expert</span></div>
+                </article>
+                <article class="team-card reveal" data-delay="200">
+                    <img src="assets/images/team/emmanuel-mensah.svg" alt="Emmanuel Mensah portrait" loading="lazy">
+                    <h3>Emmanuel Mensah — Growth & SEO Lead</h3>
+                    <p>Specializes in technical SEO and full-funnel growth programs tied directly to revenue goals.</p>
+                    <div class="team-cred"><span>GA4 Certified</span><span>Technical SEO Specialist</span></div>
+                </article>
+            </div>
+            <div class="partner-badges reveal" data-delay="250">
+                <span>AWS Partner Network</span>
+                <span>Google Analytics Certified Team</span>
+                <span>Meta Business Partner</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section partnership" id="partnership">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Partnership Opportunities</span>
+                <h2 class="section-title">Partner With <span class="gradient-text">EL-HUB Ventures</span></h2>
+                <p class="section-subtitle">We collaborate with founders and growth-ready businesses through structured investment partnerships with clear obligations, governance, and ROI expectations.</p>
+            </div>
+            <div class="partnership-card reveal">
+                <p>Our partnership framework covers investment terms, performance reporting cadence, confidentiality, collateral provisions, dispute resolution, and early exit conditions to protect all parties.</p>
+                <div class="partnership-actions">
+                    <a href="#" class="btn btn-primary protected-doc-link" data-doc-url="assets/docs/ElHub_Investment_Agreement.pdf">Download Investment Agreement (PDF)</a>
+                    <a href="contact.html" class="btn btn-outline">Discuss Partnership Terms</a>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="section resources" id="resources">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Resources</span>
+                <h2 class="section-title">Insights From <span class="gradient-text">Real Delivery Work</span></h2>
+            </div>
+            <div class="resources-grid">
+                <article class="resource-card reveal">
+                    <h3>Technical SEO Checklist for SaaS</h3>
+                    <p>How to fix crawling, indexing, and on-page structure fast.</p>
+                </article>
+                <article class="resource-card reveal" data-delay="100">
+                    <h3>MVP Architecture Playbook</h3>
+                    <p>A practical blueprint for shipping fast without tech debt traps.</p>
+                </article>
+                <article class="resource-card reveal" data-delay="200">
+                    <h3>Conversion UX Patterns</h3>
+                    <p>Interface decisions that improve pipeline quality and close rate.</p>
+                </article>
+            </div>
+            <div class="centered-link reveal" data-delay="300">
+                <a href="resources/index.html" class="btn btn-outline">Browse Resource Library</a>
+            </div>
+        </div>
+    </section>
+
+    
+    </main>
+
+    <section class="security-strip" aria-label="Security and data handling notice">
+        <div class="container security-inner">
+            <p><strong>HTTPS secured:</strong> All sessions are encrypted in transit.</p>
+            <p><strong>Data handling:</strong> Form data is used only for project communication and service delivery.</p>
+            <p><strong>Reliability:</strong> Dedicated support channels, response SLA, and maintenance plans available.</p>
         </div>
     </section>
 
@@ -538,19 +682,21 @@
                 <div class="footer-links">
                     <h4>Services</h4>
                     <ul>
-                        <li><a href="#services">Web Development</a></li>
-                        <li><a href="#services">Mobile Apps</a></li>
-                        <li><a href="#services">UI/UX Design</a></li>
-                        <li><a href="#services">Digital Strategy</a></li>
+                        <li><a href="services/web-development.html">Web Development</a></li>
+                        <li><a href="services/mobile-app-development.html">Mobile Apps</a></li>
+                        <li><a href="services/seo-services.html">SEO Services</a></li>
+                        <li><a href="services/cloud-devops.html">Cloud & DevOps</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
                     <h4>Company</h4>
                     <ul>
                         <li><a href="#why-us">About Us</a></li>
+                        <li><a href="case-studies.html">Case Studies</a></li>
                         <li><a href="#portfolio">Portfolio</a></li>
                         <li><a href="#process">Process</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="resources/index.html">Resources</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
@@ -564,11 +710,63 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 EL-HUB VENTURES. All rights reserved.</p>
-                <p>Designed & Built with 🔥 by EL-HUB VENTURES</p>
+                <p><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a> · <a href="#" class="protected-doc-link" data-doc-url="assets/docs/ElHub_Investment_Agreement.pdf">Investment Agreement</a></p>
             </div>
         </div>
     </footer>
 
+    <a href="contact.html" class="sticky-cta">Get Proposal in 48 Hours</a>
+    <div class="certificate-modal" id="certificateModal" aria-hidden="true" role="dialog" aria-label="Certificate preview">
+        <div class="certificate-modal-backdrop" id="certificateModalBackdrop"></div>
+        <div class="certificate-modal-content">
+            <button type="button" class="certificate-modal-close" id="certificateModalClose" aria-label="Close certificate preview">&times;</button>
+            <img src="assets/images/certifications/cac-certificate-el-hub-ventures.png" alt="EL-HUB VENTURES certificate enlarged preview">
+        </div>
+    </div>
+    <div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+        <p>We use analytics cookies to improve performance and user experience. See our <a href="privacy.html">Privacy Policy</a>.</p>
+        <button type="button" id="acceptCookies" class="btn btn-primary">Accept</button>
+    </div>
+
     <script src="main.js"></script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "EL-HUB VENTURES",
+            "url": "https://www.elhubventures.com",
+            "logo": "assets/images/favicon.png",
+            "description": "Premium web and mobile app development company delivering scalable digital solutions.",
+            "sameAs": [
+                "https://www.linkedin.com/company/elhubventures",
+                "https://www.instagram.com/elhubventures/",
+                "https://www.tiktok.com/@elhubventures"
+            ],
+            "knowsAbout": [
+                "Web Development",
+                "Mobile App Development",
+                "UI/UX Design",
+                "Search Engine Optimization",
+                "Digital Strategy",
+                "Cloud & DevOps"
+            ]
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            "name": "EL-HUB VENTURES",
+            "url": "https://www.elhubventures.com",
+            "areaServed": "Global",
+            "serviceType": [
+                "Web Development",
+                "Mobile App Development",
+                "UI/UX Design",
+                "Search Engine Optimization",
+                "Cloud & DevOps"
+            ]
+        }
+    </script>
 </body>
 </html>

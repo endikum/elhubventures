@@ -1,0 +1,10 @@
+<svg width="640" height="640" viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="640" fill="#1a1f31"/>
+  <circle cx="320" cy="255" r="116" fill="#9b6a4f"/>
+  <rect x="170" y="378" width="300" height="190" rx="90" fill="#2a3045"/>
+  <path d="M190 246c15-83 62-132 130-132 64 0 111 49 130 132-35-24-82-38-130-38s-95 14-130 38z" fill="#25140c"/>
+  <circle cx="280" cy="254" r="8" fill="#20110a"/>
+  <circle cx="360" cy="254" r="8" fill="#20110a"/>
+  <path d="M280 304c18 16 42 16 60 0" stroke="#20110a" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <text x="320" y="610" text-anchor="middle" fill="#e3c567" font-size="26" font-family="Inter, Arial">Ngozi Kalu</text>
+</svg>

@@ -1,0 +1,10 @@
+<svg width="640" height="640" viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="640" fill="#15131f"/>
+  <circle cx="320" cy="255" r="116" fill="#8a5a3f"/>
+  <rect x="170" y="378" width="300" height="190" rx="90" fill="#252035"/>
+  <path d="M198 240c18-79 62-126 122-126 60 0 104 47 122 126-30-23-75-35-122-35s-92 12-122 35z" fill="#0b0f19"/>
+  <circle cx="282" cy="252" r="8" fill="#090d16"/>
+  <circle cx="358" cy="252" r="8" fill="#090d16"/>
+  <path d="M278 306c20 15 44 15 64 0" stroke="#090d16" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <text x="320" y="610" text-anchor="middle" fill="#e3c567" font-size="26" font-family="Inter, Arial">Emmanuel Mensah</text>
+</svg>

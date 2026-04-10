@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | EL-HUB VENTURES</title>
+  <meta name="description" content="Contact EL-HUB VENTURES to discuss your web, mobile, SEO, and cloud projects.">
+  <link rel="canonical" href="https://www.elhubventures.com/contact.html">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">&lt;/&gt;</span>
+        <span class="logo-text">EL-HUB<span class="logo-accent">VENTURES</span></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li class="nav-dropdown">
+          <button class="nav-drop-toggle" type="button" aria-expanded="false">Services</button>
+          <ul class="nav-submenu">
+            <li><a href="services/web-development.html">Web Development</a></li>
+            <li><a href="services/mobile-app-development.html">Mobile App Development</a></li>
+            <li><a href="services/seo-services.html">SEO Services</a></li>
+            <li><a href="services/cloud-devops.html">Cloud & DevOps</a></li>
+          </ul>
+        </li>
+        <li><a href="case-studies.html">Case Studies</a></li>
+        <li><a href="resources/index.html">Resources</a></li>
+        <li><a href="contact.html" class="nav-cta">Get Started</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <main class="section page-main">
+    <section class="section contact" id="contact">
+      <div class="container">
+        <div class="contact-layout">
+          <div class="contact-left reveal reveal-left">
+            <span class="section-tag">Let's Build</span>
+            <h1 class="section-title">Ready to <span class="gradient-text">Conquer?</span></h1>
+            <p class="section-subtitle">Tell us about your vision. We'll turn it into a roadmap - and then into reality.</p>
+            <div class="contact-hubs">
+              <div class="hub-card reveal reveal-scale" data-delay="0">
+                <div class="hub-header">
+                  <span class="hub-flag">NG</span>
+                  <strong>Nigeria (HQ)</strong>
+                </div>
+                <p>12 Garba A Idris St, Kado, Abuja, Nigeria</p>
+                <div class="hub-contact">
+                  <a href="tel:+2349139370513">(+234) 913 937-0513</a>
+                  <a href="mailto:ng@elhubventures.com">ng@elhubventures.com</a>
+                </div>
+              </div>
+              <div class="hub-card reveal reveal-scale" data-delay="100">
+                <div class="hub-header">
+                  <span class="hub-flag">CA</span>
+                  <strong>Canada</strong>
+                </div>
+                <p>Ontario L9T 7P7, Canada</p>
+                <div class="hub-contact">
+                  <a href="tel:+12266977828">+1 (226) 697-7828</a>
+                  <a href="mailto:cad@elhubventures.com">cad@elhubventures.com</a>
+                </div>
+              </div>
+              <div class="hub-card reveal reveal-scale" data-delay="200">
+                <div class="hub-header">
+                  <span class="hub-flag">UK</span>
+                  <strong>United Kingdom</strong>
+                </div>
+                <p>Birmingham B20 2BT, UK</p>
+                <div class="hub-contact">
+                  <a href="tel:+447474780484">(+44) 7474 780484</a>
+                  <a href="mailto:uk@elhubventures.com">uk@elhubventures.com</a>
+                </div>
+              </div>
+            </div>
+            <div class="main-contact-highlight reveal" data-delay="300">
+              <div>
+                <strong>General Inquiries</strong>
+                <span>contact@elhubventures.com</span>
+              </div>
+            </div>
+          </div>
+          <div class="contact-right reveal reveal-right" data-delay="200">
+            <form class="contact-form" id="contactForm">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="John Doe" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="john@company.com" required>
+              </div>
+              <div class="form-group">
+                <label for="service">Service Needed</label>
+                <select id="service" name="service" required>
+                  <option value="" disabled selected>Select a service</option>
+                  <option value="web">Web Development</option>
+                  <option value="mobile">Mobile App Development</option>
+                  <option value="uiux">UI/UX Design</option>
+                  <option value="strategy">Digital Strategy</option>
+                  <option value="cloud">Cloud & DevOps</option>
+                  <option value="seo">Search Engine Optimization</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="budget">Estimated Budget</label>
+                <select id="budget" name="budget" required>
+                  <option value="" disabled selected>Select budget range</option>
+                  <option value="under-5k">Under $5,000</option>
+                  <option value="5k-15k">$5,000 - $15,000</option>
+                  <option value="15k-40k">$15,000 - $40,000</option>
+                  <option value="40k-plus">$40,000+</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="timeline">Preferred Timeline</label>
+                <select id="timeline" name="timeline" required>
+                  <option value="" disabled selected>Select timeline</option>
+                  <option value="asap">ASAP</option>
+                  <option value="1-2-months">1-2 months</option>
+                  <option value="3-6-months">3-6 months</option>
+                  <option value="flexible">Flexible timeline</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="message">Project Details</label>
+                <textarea id="message" name="message" rows="4" placeholder="Tell us about your project..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-full" id="submitBtn">Send Message</button>
+              <a class="btn btn-outline btn-full" href="https://calendly.com/" target="_blank" rel="noopener noreferrer">Book a Strategy Call</a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 EL-HUB VENTURES. All rights reserved.</p>
+        <p><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a> · <a href="#" class="protected-doc-link" data-doc-url="assets/docs/ElHub_Investment_Agreement.pdf">Investment Agreement</a></p>
+      </div>
+    </div>
+  </footer>
+  <script src="main.js"></script>
+</body>
+</html>

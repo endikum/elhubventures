@@ -1,0 +1,35 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0d14"/>
+      <stop offset="100%" stop-color="#261a27"/>
+    </linearGradient>
+    <linearGradient id="violet" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#bd8cff"/>
+      <stop offset="100%" stop-color="#7f5af0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="720" fill="url(#bg3)"/>
+  <rect x="60" y="60" width="1080" height="600" rx="26" fill="#121420" stroke="#30293b"/>
+  <rect x="95" y="95" width="1010" height="70" rx="14" fill="#171b2b"/>
+  <rect x="120" y="120" width="220" height="18" rx="9" fill="#9e7def"/>
+  <rect x="800" y="118" width="120" height="22" rx="11" fill="#252a3f"/>
+  <rect x="940" y="118" width="140" height="22" rx="11" fill="#7f5af0"/>
+  <rect x="95" y="190" width="300" height="440" rx="16" fill="#151b2c"/>
+  <rect x="415" y="190" width="300" height="440" rx="16" fill="#151b2c"/>
+  <rect x="735" y="190" width="300" height="440" rx="16" fill="#151b2c"/>
+  <rect x="125" y="220" width="240" height="150" rx="12" fill="#1f2740"/>
+  <circle cx="250" cy="295" r="42" fill="#2d3552"/>
+  <rect x="125" y="392" width="180" height="12" rx="6" fill="#37405d"/>
+  <rect x="125" y="416" width="130" height="12" rx="6" fill="#303853"/>
+  <rect x="125" y="455" width="160" height="34" rx="17" fill="url(#violet)"/>
+  <rect x="445" y="220" width="240" height="150" rx="12" fill="#1f2740"/>
+  <rect x="445" y="392" width="180" height="12" rx="6" fill="#37405d"/>
+  <rect x="445" y="416" width="130" height="12" rx="6" fill="#303853"/>
+  <rect x="445" y="455" width="160" height="34" rx="17" fill="url(#violet)"/>
+  <rect x="765" y="220" width="240" height="150" rx="12" fill="#1f2740"/>
+  <rect x="765" y="392" width="180" height="12" rx="6" fill="#37405d"/>
+  <rect x="765" y="416" width="130" height="12" rx="6" fill="#303853"/>
+  <rect x="765" y="455" width="160" height="34" rx="17" fill="url(#violet)"/>
+  <text x="95" y="48" fill="#c4b4ff" font-size="24" font-family="Inter, Arial, sans-serif">MarketEdge</text>
+</svg>

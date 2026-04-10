@@ -1,0 +1,35 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d0f14"/>
+      <stop offset="100%" stop-color="#1a2338"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e3c567"/>
+      <stop offset="100%" stop-color="#d4af37"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="720" fill="url(#bg)"/>
+  <rect x="40" y="40" width="1120" height="640" rx="24" fill="#121722" stroke="#2a3349"/>
+  <rect x="70" y="80" width="280" height="560" rx="16" fill="#0f1420" stroke="#273149"/>
+  <text x="95" y="130" fill="#e3c567" font-size="28" font-family="Inter, Arial, sans-serif">FinTrack Pro</text>
+  <rect x="95" y="165" width="230" height="10" rx="5" fill="#3f4b63"/>
+  <rect x="95" y="190" width="180" height="10" rx="5" fill="#2f3850"/>
+  <rect x="95" y="245" width="230" height="90" rx="14" fill="#161f33"/>
+  <path d="M110 315 L150 285 L190 295 L240 255 L300 220" stroke="url(#gold)" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <circle cx="150" cy="285" r="6" fill="#e3c567"/>
+  <circle cx="240" cy="255" r="6" fill="#e3c567"/>
+  <rect x="385" y="80" width="745" height="260" rx="16" fill="#101829" stroke="#2d3750"/>
+  <text x="420" y="130" fill="#cfd7e6" font-size="24" font-family="Inter, Arial, sans-serif">Revenue Analytics</text>
+  <rect x="420" y="160" width="675" height="150" rx="12" fill="#0c1424"/>
+  <path d="M440 280 L520 250 L595 265 L680 210 L780 220 L860 170 L940 185 L1060 140" stroke="url(#gold)" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <rect x="385" y="370" width="355" height="270" rx="16" fill="#101829" stroke="#2d3750"/>
+  <rect x="775" y="370" width="355" height="270" rx="16" fill="#101829" stroke="#2d3750"/>
+  <text x="420" y="415" fill="#cfd7e6" font-size="20" font-family="Inter, Arial, sans-serif">Cash Flow</text>
+  <rect x="420" y="440" width="290" height="16" rx="8" fill="#2a344a"/>
+  <rect x="420" y="470" width="250" height="16" rx="8" fill="#253046"/>
+  <rect x="420" y="500" width="320" height="16" rx="8" fill="#2f3952"/>
+  <text x="810" y="415" fill="#cfd7e6" font-size="20" font-family="Inter, Arial, sans-serif">Alerts</text>
+  <rect x="810" y="445" width="280" height="48" rx="10" fill="#1a2438"/>
+  <rect x="810" y="510" width="280" height="48" rx="10" fill="#1a2438"/>
+</svg>
