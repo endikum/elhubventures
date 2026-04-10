@@ -15,13 +15,40 @@ const transporter = nodemailer.createTransport({
     }
 });
 
+const submissionStore = new Map();
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000; // 10 minutes
+const RATE_LIMIT_MAX_REQUESTS = 5;
+
 module.exports = async (req, res) => {
     if (req.method !== 'POST') {
         return res.status(405).json({ message: 'Method Not Allowed' });
     }
 
     try {
-        const { name, email, service, message, budget, timeline } = req.body;
+        const clientIpHeader = req.headers['x-forwarded-for'];
+        const clientIp = (Array.isArray(clientIpHeader) ? clientIpHeader[0] : clientIpHeader || req.socket?.remoteAddress || 'unknown')
+            .toString()
+            .split(',')[0]
+            .trim();
+        const now = Date.now();
+        const recentAttempts = (submissionStore.get(clientIp) || []).filter((timestamp) => now - timestamp < RATE_LIMIT_WINDOW_MS);
+
+        if (recentAttempts.length >= RATE_LIMIT_MAX_REQUESTS) {
+            return res.status(429).json({
+                success: false,
+                message: 'Too many submissions. Please wait a few minutes and try again.'
+            });
+        }
+
+        recentAttempts.push(now);
+        submissionStore.set(clientIp, recentAttempts);
+
+        const { name, email, service, message, budget, timeline, companyWebsite } = req.body;
+
+        // Hidden honeypot field should remain empty for real users.
+        if (companyWebsite) {
+            return res.status(200).json({ success: true, message: 'Submission accepted' });
+        }
 
         if (!name || !email || !service || !message || !budget || !timeline) {
             return res.status(400).json({ message: 'Missing required fields' });
