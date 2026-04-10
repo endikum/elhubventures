@@ -270,10 +270,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             } catch (error) {
                 console.error(error);
-                btn.innerHTML = 'Failed to Send';
-                btn.style.background = '#cf3939';
-                btn.style.color = '#fff';
-                btn.style.borderColor = '#cf3939';
+                // Fallback for static hosting/local preview when /api/contact is unavailable.
+                const formData = new FormData(contactForm);
+                const data = Object.fromEntries(formData.entries());
+                const subject = encodeURIComponent(`Project Inquiry - ${data.service || 'General'}`);
+                const body = encodeURIComponent(
+                    `Name: ${data.name || ''}\n` +
+                    `Email: ${data.email || ''}\n` +
+                    `Service: ${data.service || ''}\n` +
+                    `Budget: ${data.budget || ''}\n` +
+                    `Timeline: ${data.timeline || ''}\n\n` +
+                    `Project Details:\n${data.message || ''}`
+                );
+
+                btn.innerHTML = 'Open Email App';
+                btn.style.background = '#e3c567';
+                btn.style.color = '#000';
+                btn.style.borderColor = '#e3c567';
+                window.location.href = `mailto:contact@elhubventures.com?subject=${subject}&body=${body}`;
             } finally {
                 setTimeout(() => {
                     btn.disabled = false;
