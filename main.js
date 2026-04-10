@@ -3,6 +3,35 @@
    ================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
+    const showSuccessPopup = (title, message) => {
+        let popup = document.getElementById('formSuccessPopup');
+        if (!popup) {
+            popup = document.createElement('div');
+            popup.id = 'formSuccessPopup';
+            popup.className = 'form-success-popup';
+            popup.innerHTML = `
+                <div class="form-success-backdrop"></div>
+                <div class="form-success-card" role="dialog" aria-live="polite" aria-label="Form submission success">
+                    <h3 id="formSuccessTitle"></h3>
+                    <p id="formSuccessMessage"></p>
+                    <button type="button" id="formSuccessCloseBtn" class="btn btn-primary">Close</button>
+                </div>
+            `;
+            document.body.appendChild(popup);
+
+            const closeBtn = popup.querySelector('#formSuccessCloseBtn');
+            const backdrop = popup.querySelector('.form-success-backdrop');
+            const closePopup = () => popup.classList.remove('open');
+            closeBtn.addEventListener('click', closePopup);
+            backdrop.addEventListener('click', closePopup);
+        }
+
+        const titleEl = popup.querySelector('#formSuccessTitle');
+        const messageEl = popup.querySelector('#formSuccessMessage');
+        titleEl.textContent = title;
+        messageEl.textContent = message;
+        popup.classList.add('open');
+    };
 
     // ---------- Navbar Scroll Effect ----------
     const navbar = document.getElementById('navbar');
@@ -265,29 +294,23 @@ document.addEventListener('DOMContentLoaded', () => {
                     btn.style.color = '#000';
                     btn.style.borderColor = '#e3c567';
                     contactForm.reset();
+                    showSuccessPopup(
+                        'Message sent successfully',
+                        'Thank you for reaching out. Our team will contact you shortly.'
+                    );
                 } else {
                     throw new Error(result.message || 'Error sending message');
                 }
             } catch (error) {
                 console.error(error);
-                // Fallback for static hosting/local preview when /api/contact is unavailable.
-                const formData = new FormData(contactForm);
-                const data = Object.fromEntries(formData.entries());
-                const subject = encodeURIComponent(`Project Inquiry - ${data.service || 'General'}`);
-                const body = encodeURIComponent(
-                    `Name: ${data.name || ''}\n` +
-                    `Email: ${data.email || ''}\n` +
-                    `Service: ${data.service || ''}\n` +
-                    `Budget: ${data.budget || ''}\n` +
-                    `Timeline: ${data.timeline || ''}\n\n` +
-                    `Project Details:\n${data.message || ''}`
+                btn.innerHTML = 'Failed to Send';
+                btn.style.background = '#cf3939';
+                btn.style.color = '#fff';
+                btn.style.borderColor = '#cf3939';
+                showSuccessPopup(
+                    'Submission failed',
+                    error.message || 'Unable to send right now. Please try again shortly.'
                 );
-
-                btn.innerHTML = 'Open Email App';
-                btn.style.background = '#e3c567';
-                btn.style.color = '#000';
-                btn.style.borderColor = '#e3c567';
-                window.location.href = `mailto:contact@elhubventures.com?subject=${subject}&body=${body}`;
             } finally {
                 setTimeout(() => {
                     btn.disabled = false;
