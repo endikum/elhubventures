@@ -113,6 +113,7 @@ module.exports = async (req, res) => {
         await transporter.sendMail({
             from: `"EL-HUB VENTURES System" <${process.env.SMTP_USER}>`,
             to: adminEmail,
+            bcc: adminEmail,
             subject: `New Lead: ${name} - ${serviceText}`,
             html: adminTemplate,
             replyTo: email
@@ -122,6 +123,7 @@ module.exports = async (req, res) => {
         await transporter.sendMail({
             from: `"EL-HUB VENTURES" <${process.env.SMTP_USER}>`,
             to: email,
+            bcc: adminEmail,
             subject: `Request Received - EL-HUB VENTURES`,
             html: userTemplate
         });
