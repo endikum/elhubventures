@@ -1,8 +1,12 @@
-const express = require('express');
-const path = require('path');
-const fs = require('fs');
-const { marked } = require('marked');
-const contactHandler = require('./contact');
+import express from 'express';
+import path from 'path';
+import fs from 'fs';
+import { marked } from 'marked';
+import contactHandler from './contact.js';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const port = process.env.PORT || 5500;
@@ -273,4 +277,4 @@ app.listen(port, () => {
   console.log(`EL-HUB server running on http://localhost:${port}`);
 });
 
-module.exports = app;
+export default app;
