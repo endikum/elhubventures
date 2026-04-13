@@ -51,16 +51,22 @@ app.get(['/resources', '/resources/', '/resources/index.html'], (req, res) => {
   }
   const posts = getLivePosts();
   
+  // Icons for randomized premium feel
+  const icons = ['&lt;/&gt;', '&#9881;', '&#128187;', '&#128200;', '&#128269;', '&#9729;'];
+  
   // Create Article Cards dynamically
-  let listHtml = posts.map(p => `
+  let listHtml = posts.map((p, index) => {
+    const icon = icons[index % icons.length];
+    return `
     <article class="luxury-card reveal visible">
-        <div class="luxury-card-icon">INSIGHT</div>
+        <div class="luxury-card-icon">${icon}</div>
         <h4>${p.topic}</h4>
         <p><strong>Focus:</strong> ${p.keyword}</p>
         <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">Published on ${p.publishDate}</p>
         <a href="/insights/${p.slug}" class="btn btn-outline" style="padding: 10px 20px; font-size: 0.85rem;">Read Full Insight &rarr;</a>
     </article>
-  `).join('');
+  `;
+  }).join('');
   
   if(posts.length === 0) {
     listHtml = '<p style="color:var(--text-muted); text-align:center; grid-column: 1/-1;">Check back soon for latest technical insights!</p>';
