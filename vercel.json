@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "rewrites": [
+    {
+      "source": "/resources",
+      "destination": "/server.js"
+    },
+    {
+      "source": "/resources/(.*)",
+      "destination": "/server.js"
+    },
+    {
+      "source": "/insights",
+      "destination": "/server.js"
+    },
+    {
+      "source": "/insights/(.*)",
+      "destination": "/server.js"
+    }
+  ],
+  "cleanUrls": true
+}

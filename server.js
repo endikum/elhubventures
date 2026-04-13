@@ -266,3 +266,5 @@ app.use((req, res) => {
 app.listen(port, () => {
   console.log(`EL-HUB server running on http://localhost:${port}`);
 });
+
+module.exports = app;
