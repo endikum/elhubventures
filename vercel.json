@@ -1,21 +1,24 @@
 {
   "version": 2,
+  "functions": {
+    "api/index.js": {
+      "includeFiles": "index.html,index.css,content_calendar.csv,insights/**",
+      "memory": 1024,
+      "maxDuration": 10
+    }
+  },
   "rewrites": [
     {
       "source": "/resources",
-      "destination": "/api/index.js"
+      "destination": "/api/index"
     },
     {
       "source": "/resources/(.*)",
-      "destination": "/api/index.js"
-    },
-    {
-      "source": "/insights",
-      "destination": "/api/index.js"
+      "destination": "/api/index"
     },
     {
       "source": "/insights/(.*)",
-      "destination": "/api/index.js"
+      "destination": "/api/index"
     }
   ],
   "cleanUrls": true
