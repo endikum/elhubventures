@@ -3,19 +3,19 @@
   "rewrites": [
     {
       "source": "/resources",
-      "destination": "/server.js"
+      "destination": "/api/index.js"
     },
     {
       "source": "/resources/(.*)",
-      "destination": "/server.js"
+      "destination": "/api/index.js"
     },
     {
       "source": "/insights",
-      "destination": "/server.js"
+      "destination": "/api/index.js"
     },
     {
       "source": "/insights/(.*)",
-      "destination": "/server.js"
+      "destination": "/api/index.js"
     }
   ],
   "cleanUrls": true

@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const { marked } = require('marked');
-const contactHandler = require('./api/contact');
+const contactHandler = require('./contact');
 
 const app = express();
 const port = process.env.PORT || 5500;
@@ -21,7 +21,7 @@ app.get('/test-server', (req, res) => res.send('ALIVE'));
 
 // Helper to load content calendar
 function getLivePosts() {
-  const csvPath = path.join(__dirname, 'content_calendar.csv');
+  const csvPath = path.join(__dirname, '..', 'content_calendar.csv');
   if (!fs.existsSync(csvPath)) return [];
   const content = fs.readFileSync(csvPath, 'utf8').trim().split('\n');
   
@@ -67,8 +67,8 @@ app.get(['/resources', '/resources/', '/resources/index.html'], (req, res) => {
   }
 
   // Load the shell from index.html to ensure 100% consistency
-  const indexPath = path.join(__dirname, 'index.html');
-  if(!fs.existsSync(indexPath)) return res.send('Resources found, but site shell (index.html) is missing. Please check server root.');
+  const indexPath = path.join(__dirname, '..', 'index.html');
+  if(!fs.existsSync(indexPath)) return res.send(`Resources found, but site shell (index.html) is missing at ${indexPath}. Please check server root.`);
   
   let shell = fs.readFileSync(indexPath, 'utf8');
   const navMatch = shell.match(/<nav class="navbar" id="navbar">.*?<\/nav>/s);
@@ -149,14 +149,14 @@ app.get('/insights/:slug', (req, res) => {
   
   if(!post) return res.status(404).send('Post not found or not yet published.');
   
-  const mdPath = path.join(__dirname, 'insights', `${post.slug}.md`);
-  if(!fs.existsSync(mdPath)) return res.send('Post content coming soon.');
+  const mdPath = path.join(__dirname, '..', 'insights', `${post.slug}.md`);
+  if(!fs.existsSync(mdPath)) return res.send(`Post content coming soon at ${mdPath}`);
   
   const mdContent = fs.readFileSync(mdPath, 'utf8');
   const renderedContent = marked(mdContent);
   
   // Load the shell from index.html to ensure 100% consistency
-  let shell = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8');
+  let shell = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
   
   // Extract Nav and Footer
   const nav = shell.match(/<nav class="navbar" id="navbar">.*?<\/nav>/s)[0];
@@ -252,11 +252,11 @@ app.post('/api/contact', async (req, res) => {
 
 // Handle Home Page separately to ensure it is always dynamic & fast
 app.get('/', (_req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.sendFile(path.join(__dirname, '..', 'index.html'));
 });
 
 // Final Static Fallback
-app.use(express.static(path.join(__dirname), { extensions: ['html'] }));
+app.use(express.static(path.join(__dirname, '..'), { extensions: ['html'] }));
 
 // Clean 404 handler
 app.use((req, res) => {
