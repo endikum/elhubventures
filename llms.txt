@@ -1,0 +1,28 @@
+# EL-HUB VENTURES
+> Premium web and mobile app development, technical SEO, and digital strategy for founders and growth teams in Nigeria, North America, the UK, and globally.
+
+EL-HUB VENTURES is a digital engineering and growth partner helping ambitious leaders ship scalable web apps, mobile products, cloud infrastructure, and measurable SEO programs.
+
+## Key Pages
+- / — Homepage: services overview, process, portfolio highlights, and engagement models
+- /services/index.html — Full services catalog (web, mobile, UI/UX, cloud, SEO, AI, e‑commerce, training)
+- /services/web-development.html — Custom web development and web applications
+- /services/mobile-app-development.html — iOS, Android, and cross‑platform mobile apps
+- /services/seo-services.html — Technical SEO, on‑page SEO, and growth retainers
+- /case-studies.html — Outcomes and delivery examples
+- /resources/ — Insights hub (technical articles and guides)
+- /contact.html — Offices (Nigeria HQ, Canada, UK), phone, email, and project inquiry form
+
+## Primary Topics
+- Web development (React, Next.js, Node.js)
+- Mobile app development (Flutter, React Native, native)
+- UI/UX design and design systems
+- Technical SEO and generative‑engine‑friendly content structure
+- Cloud architecture and DevOps (AWS, CI/CD, containers)
+- Digital transformation and product strategy
+- E‑commerce and multi‑tenant SaaS
+- AI and data‑driven product features
+
+## Contact
+- Website: https://www.elhubventures.com
+- General inquiries: contact@elhubventures.com

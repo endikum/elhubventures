@@ -2,7 +2,34 @@
    EL-HUB VENTURES — Main JavaScript
    ================================================ */
 
+const GA_MEASUREMENT_ID = 'G-0R31KZCPYT';
+
+let ga4Loaded = false;
+
+function loadGoogleAnalytics() {
+    if (ga4Loaded || !GA_MEASUREMENT_ID) return;
+    ga4Loaded = true;
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        window.dataLayer.push(arguments);
+    }
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', GA_MEASUREMENT_ID);
+
+    const s = document.createElement('script');
+    s.async = true;
+    s.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(GA_MEASUREMENT_ID)}`;
+    document.head.appendChild(s);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    const analyticsConsent = localStorage.getItem('cookieConsentAccepted') === 'yes';
+    if (analyticsConsent) {
+        loadGoogleAnalytics();
+    }
+
     const showSuccessPopup = (title, message) => {
         let popup = document.getElementById('formSuccessPopup');
         if (!popup) {
@@ -340,18 +367,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ---------- Cookie Consent ----------
+    // ---------- Cookie Consent (analytics loads only after Accept or prior consent) ----------
     const cookieBanner = document.getElementById('cookieBanner');
     const acceptCookies = document.getElementById('acceptCookies');
-    const cookieAccepted = localStorage.getItem('cookieConsentAccepted') === 'yes';
 
     if (cookieBanner) {
-        if (cookieAccepted) {
+        if (analyticsConsent) {
             cookieBanner.style.display = 'none';
         } else if (acceptCookies) {
             acceptCookies.addEventListener('click', () => {
                 localStorage.setItem('cookieConsentAccepted', 'yes');
                 cookieBanner.style.display = 'none';
+                loadGoogleAnalytics();
             });
         }
     }

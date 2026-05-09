@@ -11,6 +11,15 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const port = process.env.PORT || 5500;
 
+/** Safe for double-quoted HTML attributes */
+function escapeHtmlAttr(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -89,6 +98,9 @@ app.get(['/resources', '/resources/', '/resources/index.html'], (req, res) => {
   const nav = navMatch[0];
   const footer = footerMatch[0];
 
+  const resourcesCanonical = 'https://www.elhubventures.com/resources/';
+  const resourcesDesc =
+    'Technical insights on web architecture, mobile engineering, SEO, cloud DevOps, and digital strategy from EL-HUB VENTURES.';
   const html = `
     <!DOCTYPE html>
     <html lang="en">
@@ -96,7 +108,19 @@ app.get(['/resources', '/resources/', '/resources/index.html'], (req, res) => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Resources & Technical Insights | EL-HUB VENTURES</title>
-        <meta name="description" content="Access EL-HUB VENTURES' proprietary repository of technical insights, framework comparisons, and digital transformation strategies.">
+        <meta name="description" content="${resourcesDesc}">
+        <meta name="robots" content="index, follow, max-image-preview:large">
+        <link rel="canonical" href="${resourcesCanonical}">
+        <meta property="og:title" content="Resources & Technical Insights | EL-HUB VENTURES">
+        <meta property="og:description" content="${resourcesDesc}">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="${resourcesCanonical}">
+        <meta property="og:image" content="https://www.elhubventures.com/assets/images/hero.png">
+        <meta property="og:site_name" content="EL-HUB VENTURES">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Resources & Technical Insights | EL-HUB VENTURES">
+        <meta name="twitter:description" content="${resourcesDesc}">
+        <meta name="twitter:image" content="https://www.elhubventures.com/assets/images/hero.png">
         <link rel="stylesheet" href="/index.css">
     </head>
     <body class="page-main">
@@ -164,7 +188,44 @@ app.get('/insights/:slug', (req, res) => {
   
   const mdContent = fs.readFileSync(mdPath, 'utf8');
   const renderedContent = marked(mdContent);
-  
+
+  const pageUrl = `https://www.elhubventures.com/insights/${post.slug}`;
+  const metaDescription = `${post.topic}. Expert insight on ${post.keyword} from EL-HUB VENTURES.`.slice(
+    0,
+    160
+  );
+  const publishedISO = new Date(post.publishDate).toISOString().split('T')[0];
+  const safeTitle = escapeHtmlAttr(post.topic);
+  const safeDesc = escapeHtmlAttr(metaDescription);
+
+  const articleLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.topic,
+    description: metaDescription,
+    datePublished: publishedISO,
+    dateModified: publishedISO,
+    author: {
+      '@type': 'Organization',
+      name: 'EL-HUB VENTURES',
+      url: 'https://www.elhubventures.com/',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'EL-HUB VENTURES',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://www.elhubventures.com/assets/images/favicon.png',
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${pageUrl}#article`,
+    },
+    image: 'https://www.elhubventures.com/assets/images/hero.png',
+    keywords: post.keyword,
+  };
+
   // Load the shell from index.html to ensure 100% consistency
   let shell = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
   
@@ -178,7 +239,21 @@ app.get('/insights/:slug', (req, res) => {
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>${post.topic} | EL-HUB VENTURES</title>
+      <title>${safeTitle} | EL-HUB VENTURES</title>
+      <meta name="description" content="${safeDesc}">
+      <meta name="robots" content="index, follow, max-image-preview:large">
+      <link rel="canonical" href="${pageUrl}">
+      <meta property="og:title" content="${safeTitle} | EL-HUB VENTURES">
+      <meta property="og:description" content="${safeDesc}">
+      <meta property="og:type" content="article">
+      <meta property="og:url" content="${pageUrl}">
+      <meta property="og:image" content="https://www.elhubventures.com/assets/images/hero.png">
+      <meta property="og:site_name" content="EL-HUB VENTURES">
+      <meta property="article:published_time" content="${publishedISO}">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="${safeTitle}">
+      <meta name="twitter:description" content="${safeDesc}">
+      <meta name="twitter:image" content="https://www.elhubventures.com/assets/images/hero.png">
       <link rel="stylesheet" href="/index.css">
       <style>
          .blog-content { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
@@ -236,6 +311,7 @@ app.get('/insights/:slug', (req, res) => {
 
       ${footer}
       <script src="/main.js"></script>
+      <script type="application/ld+json">${JSON.stringify(articleLd)}</script>
     </body>
     </html>
   `

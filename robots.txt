@@ -1,4 +1,25 @@
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /email-templates/
+Disallow: /skill-creator/
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
 
 Sitemap: https://www.elhubventures.com/sitemap.xml
